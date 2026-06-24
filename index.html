@@ -828,9 +828,9 @@ async function loadStats(){
 
 async function loadRegistrations(){
   try{
-    const rows=await sbGet('registrations','id,position,nome,email,telefono,price,release,paid,created_at');
-    registrations=rows.map(r=>({...r,release:r.release}));
-  }catch(e){ console.error('loadReg',e); }
+    const rows=await sb('get_all_registrations',{p_pwd:PWD});
+    registrations=rows;
+  }catch(e){ console.error('loadReg',e); alert('Errore caricamento lista: '+e.message); }
 }
 
 async function togglePaid(id){
@@ -838,7 +838,7 @@ async function togglePaid(id){
   if(!r)return;
   const newVal=!r.paid;
   try{
-    await sbPatch('registrations',id,{paid:newVal});
+    await sb('set_paid',{p_pwd:PWD,p_id:id,p_paid:newVal});
     r.paid=newVal;
     renderStats();renderTable();
   }catch(e){ alert('Errore salvataggio: '+e.message); }
