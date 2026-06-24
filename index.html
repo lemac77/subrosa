@@ -277,6 +277,9 @@ table.rtable{width:100%;border-collapse:collapse;font-size:12px;}
   color:var(--pink);border:1px solid rgba(201,116,138,.25);padding:4px 8px;border-radius:2px;
   font-family:'JetBrains Mono',monospace;font-size:9px;cursor:pointer;}
 .badge-ok:hover,.badge-no:hover{opacity:.7;}
+.del-btn{background:none;border:1px solid var(--line2);color:var(--muted);cursor:pointer;
+  width:26px;height:26px;border-radius:2px;font-size:12px;transition:all .2s;}
+.del-btn:hover{border-color:#ff5247;color:#ff5247;}
 .t-chip{font-family:'JetBrains Mono',monospace;font-size:9px;padding:2px 6px;border-radius:2px;}
 .t-early{background:rgba(201,116,138,.08);color:var(--pink);}
 .t-second{background:rgba(255,200,46,.08);color:#ffc82e;}
@@ -670,7 +673,7 @@ function goPage(id){
     </div>
     <div style="overflow-x:auto;">
       <table class="rtable">
-        <thead><tr><th>#</th><th>Nome</th><th>Email</th><th>€</th><th>Stato</th></tr></thead>
+        <thead><tr><th>#</th><th>Nome</th><th>Fascia</th><th>€</th><th>Stato</th><th></th></tr></thead>
         <tbody id="reg-tbody"></tbody>
       </table>
     </div>
@@ -895,7 +898,7 @@ function renderTable(){
   });
   const tbody=document.getElementById('reg-tbody');
   if(!list.length){
-    tbody.innerHTML='<tr><td colspan="5" style="text-align:center;padding:32px;font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--muted);">Nessuna registrazione.</td></tr>';
+    tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:32px;font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--muted);">Nessuna registrazione.</td></tr>';
     return;
   }
   const tc={early:'t-early',second:'t-second',late:'t-late'};
@@ -904,12 +907,22 @@ function renderTable(){
       <td style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);">#${String(r.position).padStart(3,'0')}</td>
       <td style="font-weight:500;">${r.nome}<br><span style="font-size:11px;color:var(--muted);">${r.email}</span></td>
       <td style="font-family:'JetBrains Mono',monospace;font-size:11px;"><span class="t-chip ${tc[r.release]||''}">${r.release}</span></td>
-      <td style="font-family:'JetBrains Mono',monospace;font-weight:700;">${r.price}€</td>
-      <td><span class="${r.paid?'badge-ok':'badge-no'}" onclick="togglePaid(${r.id})">${r.paid?'✓ Pagato':'◌ Attesa'}</span></td>
+      <td style="font-family:'JetBrains Mono',monospace;font-weight:700;">${r.price} EUR</td>
+      <td><span class="${r.paid?'badge-ok':'badge-no'}" onclick="togglePaid('${r.id}')">${r.paid?'✓ Pagato':'◌ Attesa'}</span></td>
+      <td><button class="del-btn" onclick="deleteReg('${r.id}','${r.nome.replace(/'/g,"")}')" title="Elimina">✕</button></td>
     </tr>
   `).join('');
 }
-// togglePaid è async, definita sopra
+async function deleteReg(id, nome){
+  if(!confirm('Eliminare la registrazione di '+nome+'? I posti si liberano e le posizioni NON si ricalcolano.'))return;
+  try{
+    await sb('delete_registration',{p_pwd:PWD,p_id:id});
+    registrations=registrations.filter(x=>x.id!==id);
+    await loadStats();
+    renderStats();renderTable();
+  }catch(e){ alert('Errore eliminazione: '+e.message); }
+}
+// togglePaid e deleteReg async, definite sopra
 function exportCSV(){
   const h='Pos,Nome,Email,Telefono,Fascia,Prezzo,Pagato,Data\n';
   const rows=registrations.map(r=>`${r.position},"${r.nome}","${r.email}","${r.telefono||''}",${r.release},${r.price},${r.paid?'SI':'NO'},${r.created_at}`).join('\n');
