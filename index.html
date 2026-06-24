@@ -51,9 +51,9 @@ section{position:relative;z-index:1;}
 .hero-main{display:flex;flex-direction:column;align-items:flex-start;gap:0;}
 .hero-text{width:100%;}
 h1.hero-title{font-family:'Michroma',sans-serif;text-transform:uppercase;
-  line-height:.93;font-size:clamp(60px,20vw,96px);letter-spacing:-.02em;}
-h1.hero-title .l1{display:block;color:#fff;}
-h1.hero-title .l2{display:block;color:var(--pink);text-shadow:0 0 50px rgba(201,116,138,.25);}
+  line-height:.95;font-size:clamp(40px,11vw,76px);letter-spacing:-.03em;}
+h1.hero-title .l1{display:block;color:#fff;white-space:nowrap;}
+h1.hero-title .l2{display:block;color:var(--pink);text-shadow:0 0 50px rgba(201,116,138,.25);white-space:nowrap;}
 .hero-chip{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;
   letter-spacing:.22em;text-transform:uppercase;color:var(--pink);
   border:1px solid rgba(201,116,138,.4);padding:5px 12px;border-radius:2px;margin-top:22px;}
@@ -213,6 +213,7 @@ h2.s-title{font-family:'Michroma',sans-serif;font-size:20px;text-transform:upper
 .lock-l{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
 .lock-badge{display:inline-flex;gap:5px;align-items:center;color:var(--pink);margin-top:7px;font-size:10px;}
 .lock-p{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:36px;color:var(--pink);}
+.incl-note{display:flex;align-items:center;gap:8px;color:var(--pink);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;margin-bottom:24px;}
 .pay-title{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--muted);margin:0 0 10px;}
 .pp-btn{display:flex;width:100%;align-items:center;justify-content:center;gap:10px;
@@ -309,7 +310,7 @@ table.rtable{width:100%;border-collapse:collapse;font-size:12px;}
 
   /* HERO mobile: rosa grande sotto il titolo, centrata */
   #hero{padding:90px 18px 50px;}
-  h1.hero-title{font-size:clamp(64px,22vw,96px);}
+  h1.hero-title{font-size:clamp(40px,13vw,68px);}
   .rosa-inline{max-width:340px;margin:28px auto 0;}
   .hero-meta{grid-template-columns:1fr 1fr;margin-top:32px;}
   .hm-item{padding:14px;}
@@ -345,7 +346,7 @@ table.rtable{width:100%;border-collapse:collapse;font-size:12px;}
 }
 
 @media(max-width:380px){
-  h1.hero-title{font-size:60px;}
+  h1.hero-title{font-size:40px;}
   .rosa-inline{max-width:280px;}
   .hero-meta{grid-template-columns:1fr;}
   .stats-row{grid-template-columns:1fr 1fr;}
@@ -382,10 +383,10 @@ function goPage(id){
     <div class="hero-main a1">
       <div class="hero-text">
         <h1 class="hero-title">
-          <span class="l1">SUB</span>
-          <span class="l2">ROSA</span>
+          <span class="l1">SUB ROSA</span>
+          <span class="l2">POP-UP</span>
         </h1>
-        <div class="hero-chip">Pop-Up · Vicenza</div>
+        <div class="hero-chip">Deto &amp; Sin Fatiqque · Vicenza</div>
       </div>
       <!-- ROSA INLINE -->
       <div class="rosa-inline">
@@ -460,7 +461,7 @@ function goPage(id){
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
-              Un pop-up <b>privato ed esclusivo</b>. <em>120 persone</em>, niente di più. Un evento che non trovi sui social, senza locandine in giro. Si diffonde solo di bocca in bocca. <b>Sotto la rosa.</b>
+              Sub Rosa è una serata privata costruita attorno a un concetto preciso: <b>meno persone, più qualità</b>. Una capienza volutamente limitata, una location storica e una direzione artistica curata per creare un'atmosfera che difficilmente si trova nei format tradizionali.
             </div>
           </div>
         </div>
@@ -475,7 +476,7 @@ function goPage(id){
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
-              <em>Afro House · House.</em> Una selezione curata per far muovere il corpo senza perdere l'anima. Groove profondo, ritmi africani, energia controllata. Niente compromessi.
+              Una selezione musicale che attraversa <em>Afro House e House contemporanea</em>, costruita per accompagnare la notte dall'inizio alla fine. Ritmi caldi, groove profondi e un'energia coinvolgente che mette al centro la qualità della musica e delle persone che la vivono.
             </div>
           </div>
         </div>
@@ -490,7 +491,7 @@ function goPage(id){
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
-              Raccolta, intima, <b>esclusiva</b>. Il tipo di notte che si ricorda. Nessun elemento di massa, nessuna dispersione. Solo le persone giuste, nello spazio giusto.
+              Un contesto <b>intimo e curato</b>, dove ogni elemento contribuisce all'esperienza. La dimensione contenuta dell'evento permette di vivere la musica, la location e le persone in modo naturale, senza caos e senza dispersione. Una notte pensata per lasciare il segno.
             </div>
           </div>
         </div>
@@ -505,7 +506,7 @@ function goPage(id){
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
-              Solo su registrazione. Il posto è <b>bloccato al momento dell'iscrizione</b> e il prezzo sale man mano che i posti si esauriscono. Chi prima arriva, paga meno.
+              L'ingresso è disponibile esclusivamente tramite registrazione. I posti sono limitati e il prezzo aumenta progressivamente con il riempimento dell'evento. <b>Prenotare in anticipo</b> significa garantirsi l'accesso alle condizioni più vantaggiose.
             </div>
           </div>
         </div>
@@ -518,13 +519,13 @@ function goPage(id){
   <section id="s-location">
     <div class="wrap">
       <div class="sec-label">La location</div>
-      <p class="loc-intro">Un gioiello seicentesco nel cuore di Vicenza, a lungo dimenticato e oggi completamente restaurato. <b>Monumentale e allo stesso tempo raccolto</b>, sorge all'imbocco della Valletta del Silenzio.</p>
+      <p class="loc-intro"><b>Villa Valmarana ai Nani</b> è uno dei luoghi più affascinanti di Vicenza. Un complesso storico immerso nel verde, all'ingresso della Valletta del Silenzio, dove architettura, storia e atmosfera si incontrano in modo unico. Per una notte, i suoi spazi accoglieranno un'esperienza intima e riservata, lontana dai circuiti tradizionali della vita notturna.</p>
       <div class="loc-table">
         <div class="lt-row"><div class="lk">Indirizzo</div><div class="lv"><a href="https://share.google/PIKTPv0lcbUnYNrWU" target="_blank">Via della Rotonda, Vicenza ↗</a></div></div>
         <div class="lt-row"><div class="lk">Apertura cancelli</div><div class="lv">Ore 21:00</div></div>
-        <div class="lt-row"><div class="lk">Chiusura</div><div class="lv">Ore 02:00</div></div>
+        <div class="lt-row"><div class="lk">Chiusura evento</div><div class="lv">Ore 02:00</div></div>
         <div class="lt-row"><div class="lk">Parcheggio</div><div class="lv">Adiacente · gratuito</div></div>
-        <div class="lt-row"><div class="lk">Capienza</div><div class="lv">120 persone</div></div>
+        <div class="lt-row"><div class="lk">Capienza massima</div><div class="lv">120 persone</div></div>
       </div>
     </div>
   </section>
@@ -538,7 +539,7 @@ function goPage(id){
           <div class="pr-left">
             <div class="pr-label">Posti 1–40</div>
             <div class="pr-name">Early bird</div>
-            <div class="pr-range">Disponibili ora</div>
+            <div class="pr-range">Disponibili ora · consumazione inclusa</div>
           </div>
           <div>
             <div class="pr-price now">20€</div>
@@ -549,7 +550,7 @@ function goPage(id){
           <div class="pr-left">
             <div class="pr-label">Posti 41–100</div>
             <div class="pr-name">Second release</div>
-            <div class="pr-range">Prezzo successivo</div>
+            <div class="pr-range">Prezzo successivo · consumazione inclusa</div>
           </div>
           <div class="pr-price later">25€</div>
         </div>
@@ -557,7 +558,7 @@ function goPage(id){
           <div class="pr-left">
             <div class="pr-label">Posti 101–120</div>
             <div class="pr-name">Late ticket</div>
-            <div class="pr-range">Ultimi posti</div>
+            <div class="pr-range">Ultimi posti · consumazione inclusa</div>
           </div>
           <div class="pr-price later">30€</div>
         </div>
@@ -568,10 +569,9 @@ function goPage(id){
   <!-- CTA -->
   <section id="s-cta">
     <div class="cta-pre">120 posti · prezzo bloccato all'iscrizione</div>
-    <div class="cta-h">Sei dei <span>nostri</span>?</div>
     <div style="max-width:480px;margin:0 auto;padding:0 20px;">
       <button class="btn-main" id="btn-cta-main" onclick="goPage('register')">
-        Blocca il tuo posto
+        Riserva il tuo posto
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </button>
       <div class="cta-note">Early bird a 20€ · ancora disponibili</div>
@@ -662,6 +662,10 @@ function goPage(id){
           </div>
         </div>
         <div class="lock-p" id="lock-price">20€</div>
+      </div>
+      <div class="incl-note">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+        Consumazione inclusa nel prezzo
       </div>
       <p class="pay-title">Scegli come pagare</p>
       <a class="pp-btn" id="pp-link" href="#" target="_blank">
