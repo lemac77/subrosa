@@ -61,7 +61,7 @@ h1.hero-title .l2{display:block;color:var(--pink);text-shadow:0 0 50px rgba(201,
 /* rosa inline */
 .rosa-inline{flex:0 0 auto;width:260px;height:260px;position:relative;
   display:flex;align-items:center;justify-content:center;}
-.rosa-inline svg{position:absolute;}
+.rosa-inline svg{position:absolute;max-width:100%;max-height:100%;}
 
 .hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
   margin-top:36px;border:1px solid var(--line);}
@@ -301,6 +301,62 @@ table.rtable{width:100%;border-collapse:collapse;font-size:12px;}
 .a1{animation:fadeUp .7s .18s both;}
 .a2{animation:fadeUp .7s .32s both;}
 .a3{animation:fadeUp .7s .46s both;}
+
+/* ============ MOBILE ============ */
+@media(max-width:680px){
+  nav{padding:16px 18px;}
+  .wrap{padding:0 18px;}
+
+  /* HERO: rosa come sfondo dietro il titolo, non di fianco */
+  #hero{padding:90px 18px 50px;}
+  .hero-main{position:relative;display:block;}
+  .hero-text{position:relative;z-index:2;}
+  h1.hero-title{font-size:clamp(64px,22vw,96px);}
+  .rosa-inline{
+    position:absolute;top:50%;right:-40px;transform:translateY(-50%);
+    width:200px;height:200px;z-index:1;opacity:.45;pointer-events:none;
+  }
+  .rosa-inline svg{max-width:200px;max-height:200px;}
+  .hero-chip{position:relative;z-index:2;}
+  .hero-meta{grid-template-columns:1fr 1fr;margin-top:32px;}
+  .hm-item{padding:14px;}
+
+  /* sezioni */
+  #s-format,#s-location,#s-prezzi{padding:64px 0;}
+  .sec-label{margin-bottom:28px;}
+
+  /* CTA */
+  #s-cta{padding:64px 18px;}
+
+  /* ===== DASHBOARD mobile ===== */
+  #dashboard{padding:16px 12px;}
+  .dash-header{flex-direction:column;align-items:flex-start;gap:14px;}
+  .dash-title{font-size:15px;}
+  .stats-row{grid-template-columns:1fr 1fr;gap:8px;}
+  .stat-card{padding:13px;}
+  .stat-card .sv{font-size:19px;}
+  .stat-card .sk{font-size:7.5px;}
+  .dash-filters{gap:6px;}
+  .df-btn{padding:8px 11px;font-size:9px;flex:1;text-align:center;}
+
+  /* tabella: niente scroll orizzontale, righe a blocchi */
+  .rtable thead{display:none;}
+  .rtable,.rtable tbody,.rtable tr,.rtable td{display:block;width:100%;}
+  .rtable tr{border:1px solid var(--line2);border-radius:3px;margin-bottom:10px;padding:6px 12px;background:#0a0a0a;}
+  .rtable tr:hover td{background:transparent;}
+  .rtable td{border:none;padding:6px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  .rtable td:nth-child(1){font-size:11px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:4px;}
+  .rtable td:nth-child(2){flex-direction:column;align-items:flex-start;gap:2px;}
+  .rtable td:nth-child(6){justify-content:flex-end;}
+  .del-btn{width:30px;height:30px;}
+}
+
+@media(max-width:380px){
+  h1.hero-title{font-size:60px;}
+  .rosa-inline{width:160px;height:160px;right:-30px;}
+  .hero-meta{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+}
 </style>
 </head>
 <body>
@@ -934,6 +990,10 @@ function exportCSV(){
 
 document.addEventListener('DOMContentLoaded', function(){
   loadStats();
+  // accesso dashboard via URL: aggiungi ?admin in fondo all'indirizzo
+  if(window.location.search.indexOf('admin')!==-1){
+    openDash();
+  }
 });
 </script>
 </body>
