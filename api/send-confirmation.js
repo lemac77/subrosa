@@ -84,16 +84,16 @@ function buildEmail({ nome, position, price, releaseLabel, paypalUrl }) {
           <!-- conferma -->
           <tr><td style="padding:32px;">
             <div style="color:#fff;font-size:22px;font-weight:bold;margin-bottom:8px;">Sei dentro, ${nome}.</div>
-            <div style="color:#888;font-size:14px;margin-bottom:28px;">La tua posizione è confermata.</div>
+            <div style="color:#a8a8a8;font-size:14px;margin-bottom:28px;">La tua posizione è confermata.</div>
 
             <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid ${pink};border-radius:4px;margin-bottom:24px;">
               <tr>
                 <td style="padding:18px 20px;">
-                  <div style="color:#888;font-size:10px;letter-spacing:2px;text-transform:uppercase;">Posizione</div>
+                  <div style="color:#a8a8a8;font-size:10px;letter-spacing:2px;text-transform:uppercase;">Posizione</div>
                   <div style="color:#fff;font-size:18px;font-weight:bold;margin-top:4px;">#${position} / 120</div>
                 </td>
                 <td style="padding:18px 20px;text-align:right;border-left:1px solid #1e1e1e;">
-                  <div style="color:#888;font-size:10px;letter-spacing:2px;text-transform:uppercase;">${releaseLabel}</div>
+                  <div style="color:#a8a8a8;font-size:10px;letter-spacing:2px;text-transform:uppercase;">${releaseLabel}</div>
                   <div style="color:${pink};font-size:26px;font-weight:bold;margin-top:4px;">${price} EUR</div>
                 </td>
               </tr>
@@ -102,39 +102,39 @@ function buildEmail({ nome, position, price, releaseLabel, paypalUrl }) {
             <div style="color:${pink};font-size:13px;margin-bottom:28px;">&#10003; Consumazione inclusa nel prezzo</div>
 
             <!-- pagamento -->
-            <div style="color:#888;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Come pagare</div>
+            <div style="color:#a8a8a8;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Come pagare</div>
             <a href="${paypalUrl}" style="display:block;background:${pink};color:#000;text-decoration:none;text-align:center;padding:16px;border-radius:4px;font-weight:bold;font-size:14px;letter-spacing:1px;margin-bottom:20px;">PAGA ${price} EUR CON PAYPAL</a>
 
-            <div style="color:#666;font-size:11px;text-align:center;margin-bottom:16px;">oppure bonifico</div>
-            <table width="100%" cellpadding="0" cellspacing="0" style="background:#000;border:1px solid #1e1e1e;border-radius:4px;">
+            <div style="color:#999;font-size:11px;text-align:center;margin-bottom:16px;">oppure bonifico</div>
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#161616;border:1px solid #2a2a2a;border-radius:4px;">
               <tr><td style="padding:14px 18px;border-bottom:1px solid #1e1e1e;">
-                <div style="color:#888;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;">Intestatario</div>
+                <div style="color:#a8a8a8;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;">Intestatario</div>
                 <div style="color:#fff;font-size:13px;margin-top:3px;">${EVENT.ibanHolder}</div>
               </td></tr>
               <tr><td style="padding:14px 18px;border-bottom:1px solid #1e1e1e;">
-                <div style="color:#888;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;">IBAN</div>
+                <div style="color:#a8a8a8;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;">IBAN</div>
                 <div style="color:#fff;font-size:13px;margin-top:3px;font-family:monospace;">${EVENT.iban}</div>
               </td></tr>
               <tr><td style="padding:14px 18px;">
-                <div style="color:#888;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;">Causale</div>
+                <div style="color:#a8a8a8;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;">Causale</div>
                 <div style="color:#fff;font-size:13px;margin-top:3px;">${EVENT.causale}</div>
               </td></tr>
             </table>
           </td></tr>
 
           <!-- dettagli evento -->
-          <tr><td style="padding:24px 32px;border-top:1px solid #1e1e1e;background:#000;">
+          <tr><td style="padding:24px 32px;border-top:1px solid #2a2a2a;background:#0d0d0d;">
             <table width="100%" cellpadding="0" cellspacing="0">
               <tr>
-                <td style="padding:6px 0;color:#888;font-size:12px;">Data</td>
+                <td style="padding:6px 0;color:#a8a8a8;font-size:12px;">Data</td>
                 <td style="padding:6px 0;color:#fff;font-size:12px;text-align:right;">${EVENT.data}</td>
               </tr>
               <tr>
-                <td style="padding:6px 0;color:#888;font-size:12px;">Orario</td>
+                <td style="padding:6px 0;color:#a8a8a8;font-size:12px;">Orario</td>
                 <td style="padding:6px 0;color:#fff;font-size:12px;text-align:right;">${EVENT.orario}</td>
               </tr>
               <tr>
-                <td style="padding:6px 0;color:#888;font-size:12px;">Luogo</td>
+                <td style="padding:6px 0;color:#a8a8a8;font-size:12px;">Luogo</td>
                 <td style="padding:6px 0;color:#fff;font-size:12px;text-align:right;">${EVENT.luogo}</td>
               </tr>
             </table>
@@ -142,7 +142,7 @@ function buildEmail({ nome, position, price, releaseLabel, paypalUrl }) {
 
           <!-- footer -->
           <tr><td style="padding:24px 32px;text-align:center;border-top:1px solid #1e1e1e;">
-            <div style="color:#666;font-size:11px;line-height:1.6;">Il posto è garantito alla ricezione del pagamento.<br>Ci vediamo sotto la rosa.</div>
+            <div style="color:#999;font-size:11px;line-height:1.6;">Il posto è garantito alla ricezione del pagamento.<br>Ci vediamo sotto la rosa.</div>
           </td></tr>
 
         </table>
