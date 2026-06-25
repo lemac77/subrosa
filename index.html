@@ -855,6 +855,12 @@ async function submitForm(){
     const pp=document.getElementById('pp-link');
     pp.href='https://paypal.me/andrealucietti/'+res.out_price+'EUR';
     pp.innerHTML='Paga '+res.out_price+' EUR con PayPal <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>';
+    // email di conferma (best effort, non blocca il successo)
+    fetch('/api/send-confirmation',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({nome:nome,email:email,position:res.out_position,price:res.out_price,release:res.out_release})
+    }).catch(function(err){ console.error('email non inviata',err); });
   }catch(e){
     btn.disabled=false;
     btn.innerHTML='Blocca il tuo posto <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>';
