@@ -221,6 +221,8 @@ h2.s-title{font-family:'Michroma',sans-serif;font-size:20px;text-transform:upper
   font-family:'Michroma',sans-serif;font-size:13px;letter-spacing:.04em;text-transform:uppercase;
   transition:box-shadow .25s,transform .15s;}
 .pp-btn:hover{box-shadow:0 0 28px rgba(201,116,138,.4);transform:translateY(-1px);}
+.pp-warn{font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#c9a96e;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.25);border-radius:3px;padding:10px 12px;margin-top:12px;letter-spacing:.02em;}
+.pp-warn b{color:#e0c896;}
 .divider{display:flex;align-items:center;gap:14px;margin:20px 0;
   font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:#444;}
 .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line2);}
@@ -672,6 +674,7 @@ function goPage(id){
         Paga con PayPal
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
+      <div class="pp-warn">Importante: invia come <b>Amici e Famiglia</b>, non come pagamento per beni o servizi.</div>
       <div class="divider">oppure bonifico</div>
       <div class="iban-box">
         <div class="iban-row"><div><div class="iban-k">Intestatario</div><div class="iban-v">Marco Pioggiarella</div></div></div>
