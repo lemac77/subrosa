@@ -12,7 +12,7 @@ const EVENT = {
   data: "10 Luglio 2026",
   orario: "21:00 → 02:00",
   luogo: "Villa Valmarana ai Nani, Vicenza",
-  paypalUser: "andrealucietti",
+  paypalUser: "pioggiasour",
   ibanHolder: "Marco Pioggiarella",
   iban: "LT22 3250 0853 1407 3762",
   causale: "EVENTO SUBROSA",
