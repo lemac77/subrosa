@@ -104,7 +104,8 @@ function buildEmail({ nome, position, price, releaseLabel, paypalUrl }) {
             <!-- pagamento -->
             <div style="color:#a8a8a8;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Come pagare</div>
             <a href="${paypalUrl}" style="display:block;background:${pink};color:#000;text-decoration:none;text-align:center;padding:16px;border-radius:4px;font-weight:bold;font-size:14px;letter-spacing:1px;margin-bottom:12px;">PAGA ${price} EUR CON PAYPAL</a>
-            <div style="background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.3);border-radius:4px;padding:11px 13px;margin-bottom:20px;color:#d4b87a;font-size:11px;line-height:1.6;">Importante: invia come <strong style="color:#e8d2a0;">Amici e Famiglia</strong>, non come pagamento per beni o servizi.</div>
+            <div style="background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.3);border-radius:4px;padding:11px 13px;margin-bottom:12px;color:#d4b87a;font-size:11px;line-height:1.6;">Importante: invia come <strong style="color:#e8d2a0;">Amici e Famiglia</strong>, non come pagamento per beni o servizi.</div>
+            <div style="color:#a8a8a8;font-size:11px;line-height:1.6;margin-bottom:20px;">Paghi per più persone? Inserisci i loro <strong style="color:#fff;">nomi nella descrizione</strong> del pagamento.</div>
 
             <div style="color:#999;font-size:11px;text-align:center;margin-bottom:16px;">oppure bonifico</div>
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#161616;border:1px solid #2a2a2a;border-radius:4px;">
