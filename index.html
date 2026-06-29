@@ -223,6 +223,8 @@ h2.s-title{font-family:'Michroma',sans-serif;font-size:20px;text-transform:upper
 .pp-btn:hover{box-shadow:0 0 28px rgba(201,116,138,.4);transform:translateY(-1px);}
 .pp-warn{font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#c9a96e;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.25);border-radius:3px;padding:10px 12px;margin-top:12px;letter-spacing:.02em;}
 .pp-warn b{color:#e0c896;}
+.pp-info{font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#999;margin-top:10px;letter-spacing:.02em;}
+.pp-info b{color:#fff;}
 .divider{display:flex;align-items:center;gap:14px;margin:20px 0;
   font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:#444;}
 .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line2);}
@@ -675,6 +677,7 @@ function goPage(id){
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
       <div class="pp-warn">Importante: invia come <b>Amici e Famiglia</b>, non come pagamento per beni o servizi.</div>
+      <div class="pp-info">Paghi per più persone? Inserisci i loro <b>nomi nella descrizione</b> del pagamento.</div>
       <div class="divider">oppure bonifico</div>
       <div class="iban-box">
         <div class="iban-row"><div><div class="iban-k">Intestatario</div><div class="iban-v">Marco Pioggiarella</div></div></div>
@@ -736,7 +739,6 @@ function goPage(id){
   </div>
 </div>
 
-<div onclick="adminClick()" style="position:fixed;bottom:0;right:0;width:60px;height:60px;z-index:50;cursor:default;"></div>
 
 <script>
 const SUPABASE_URL='https://etdtymahocgkknsafvfh.supabase.co';
@@ -778,7 +780,6 @@ const PWD='subrosa2026';
 let total=0;
 let registrations=[];
 let filterState='all';
-let adminClicks=0,adminTimer=null;
 
 function tierForPos(p){return p<=40?TIERS[0]:p<=100?TIERS[1]:p<=120?TIERS[2]:null;}
 
@@ -910,12 +911,6 @@ async function togglePaid(id){
   }catch(e){ alert('Errore salvataggio: '+e.message); }
 }
 
-function adminClick(){
-  adminClicks++;
-  clearTimeout(adminTimer);
-  if(adminClicks>=3){adminClicks=0;openDash();}
-  else adminTimer=setTimeout(()=>{adminClicks=0;},800);
-}
 function openDash(){
   document.getElementById('dashboard').classList.add('show');
   document.getElementById('dash-login-view').style.display='block';
@@ -994,12 +989,23 @@ function exportCSV(){
   a.download='subrosa-registrazioni.csv';a.click();
 }
 
+var logoTaps=0, logoTapTimer=null;
+function logoTapHandler(){
+  logoTaps++;
+  clearTimeout(logoTapTimer);
+  if(logoTaps>=5){
+    logoTaps=0;
+    openDash();
+  } else {
+    logoTapTimer=setTimeout(function(){ logoTaps=0; }, 1200);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function(){
   loadStats();
-  // accesso dashboard via URL: aggiungi ?admin in fondo all'indirizzo
-  if(window.location.search.indexOf('admin')!==-1){
-    openDash();
-  }
+  // accesso dashboard segreto: 5 tap rapidi sul logo SUB ROSA
+  var logo=document.getElementById('btn-logo');
+  if(logo){ logo.addEventListener('click', logoTapHandler); }
 });
 </script>
 </body>
